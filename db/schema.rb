@@ -15,25 +15,25 @@ ActiveRecord::Schema.define(version: 2019_11_20_034847) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "pokemon_types", force: :cascade do |t|
+  create_table "pikamon_types", force: :cascade do |t|
     t.string "name"
     t.datetime "deleted_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["deleted_at"], name: "index_pokemon_types_on_deleted_at"
+    t.index ["deleted_at"], name: "index_pikamon_types_on_deleted_at"
   end
 
-  create_table "pokemons", force: :cascade do |t|
+  create_table "pikamons", force: :cascade do |t|
     t.string "number"
     t.string "name"
-    t.bigint "pokemon_type_id", null: false
+    t.bigint "pikamon_type_id", null: false
     t.text "image_url"
     t.datetime "deleted_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["deleted_at"], name: "index_pokemons_on_deleted_at"
-    t.index ["pokemon_type_id"], name: "index_pokemons_on_pokemon_type_id"
+    t.index ["deleted_at"], name: "index_pikamons_on_deleted_at"
+    t.index ["pikamon_type_id"], name: "index_pikamons_on_pikamon_type_id"
   end
 
-  add_foreign_key "pokemons", "pokemon_types"
+  add_foreign_key "pikamons", "pikamon_types"
 end
