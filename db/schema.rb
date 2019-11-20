@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_19_082957) do
+ActiveRecord::Schema.define(version: 2019_11_20_034847) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,4 +23,17 @@ ActiveRecord::Schema.define(version: 2019_11_19_082957) do
     t.index ["deleted_at"], name: "index_pokemon_types_on_deleted_at"
   end
 
+  create_table "pokemons", force: :cascade do |t|
+    t.string "number"
+    t.string "name"
+    t.bigint "pokemon_type_id", null: false
+    t.text "image_url"
+    t.datetime "deleted_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["deleted_at"], name: "index_pokemons_on_deleted_at"
+    t.index ["pokemon_type_id"], name: "index_pokemons_on_pokemon_type_id"
+  end
+
+  add_foreign_key "pokemons", "pokemon_types"
 end

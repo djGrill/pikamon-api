@@ -1,0 +1,14 @@
+require: rubocop-rspec
+AllCops:
+  TargetRubyVersion: 2.6
+  Exclude:
+    - 'db/**/*'
+    - 'node_modules/**/*'
+    - 'bin/**/*'
+    - 'vendor/**/*'
+Metrics/LineLength:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/HashSyntax:
+  Enabled: false
