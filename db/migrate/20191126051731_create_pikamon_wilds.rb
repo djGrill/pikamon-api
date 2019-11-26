@@ -5,6 +5,8 @@ class CreatePikamonWilds < ActiveRecord::Migration[6.0]
       t.references :user, null: false, foreign_key: true
       t.integer :hp
       t.integer :cp
+      t.float :lat
+      t.float :lng
       t.datetime :deleted_at
 
       t.timestamps

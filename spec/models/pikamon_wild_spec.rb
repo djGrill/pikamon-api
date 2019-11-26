@@ -12,4 +12,6 @@ RSpec.describe PikamonWild, :type => :model do
   it { is_expected.to validate_presence_of(:user) }
   it { is_expected.to validate_presence_of(:hp) }
   it { is_expected.to validate_presence_of(:cp) }
+  it { is_expected.to validate_presence_of(:lat) }
+  it { is_expected.to validate_presence_of(:lng) }
 end

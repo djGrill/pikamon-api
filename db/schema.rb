@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 2019_11_26_051731) do
     t.bigint "user_id", null: false
     t.integer "hp"
     t.integer "cp"
+    t.float "lat"
+    t.float "lng"
     t.datetime "deleted_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
