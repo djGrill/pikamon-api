@@ -1,15 +1,12 @@
 # frozen_string_literal: true
 
+ENV['RAILS_ENV'] ||= 'test'
+
 require 'spec_helper'
 require File.expand_path('../config/environment', __dir__)
 
-ENV['RAILS_ENV'] ||= 'test'
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 
-if Rails.env.production?
-  abort('The Rails environment is running in production mode!')
-end
-
-require 'rspec/rails'
 require 'rspec/rails'
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
