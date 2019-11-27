@@ -29,12 +29,12 @@ ActiveRecord::Schema.define(version: 2019_11_26_051731) do
     t.bigint "user_id", null: false
     t.integer "hp"
     t.integer "cp"
-    t.float "lat"
-    t.float "lng"
+    t.geography "lonlat", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
     t.datetime "deleted_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["deleted_at"], name: "index_pikamon_wilds_on_deleted_at"
+    t.index ["lonlat"], name: "index_pikamon_wilds_on_lonlat", using: :gist
     t.index ["pikamon_id"], name: "index_pikamon_wilds_on_pikamon_id"
     t.index ["user_id"], name: "index_pikamon_wilds_on_user_id"
   end

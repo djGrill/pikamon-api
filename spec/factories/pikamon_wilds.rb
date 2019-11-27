@@ -6,7 +6,6 @@ FactoryBot.define do
     user
     hp { Faker::Number.number(digits: 3) }
     cp { Faker::Number.number(digits: 3) }
-    lat { Faker::Address.latitude }
-    lng { Faker::Address.longitude }
+    lonlat { "POINT(#{Faker::Address.longitude} #{Faker::Address.latitude})" }
   end
 end

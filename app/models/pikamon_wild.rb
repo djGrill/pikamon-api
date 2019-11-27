@@ -6,5 +6,5 @@ class PikamonWild < ApplicationRecord
   belongs_to :pikamon
   belongs_to :user
 
-  validates :pikamon, :user, :hp, :cp, :lat, :lng, presence: true
+  validates :pikamon, :user, :hp, :cp, :lonlat, presence: true
 end
