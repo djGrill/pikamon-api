@@ -5,5 +5,5 @@ class User < ApplicationRecord
 
   has_many :pikamon_wilds, :inverse_of => :pikamon, :dependent => :destroy
 
-  validates :uuid, :username, presence: true
+  validates :uuid, presence: true
 end
