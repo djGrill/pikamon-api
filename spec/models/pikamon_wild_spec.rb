@@ -6,7 +6,7 @@ RSpec.describe PikamonWild, :type => :model do
   it_behaves_like 'paranoid model'
 
   it { is_expected.to belong_to(:pikamon) }
-  it { is_expected.to belong_to(:user) }
+  it { is_expected.to belong_to(:user).optional }
 
   it { is_expected.to validate_presence_of(:pikamon) }
   it { is_expected.to validate_presence_of(:hp) }

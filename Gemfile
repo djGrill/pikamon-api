@@ -28,5 +28,5 @@ end
 group :test do
   gem 'database_cleaner'
   gem 'fuubar'
-  gem 'shoulda'
+  gem 'shoulda-matchers', '~> 4.1'
 end

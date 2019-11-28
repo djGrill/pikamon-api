@@ -4,7 +4,7 @@ class PikamonWild < ApplicationRecord
   acts_as_paranoid
 
   belongs_to :pikamon
-  belongs_to :user
+  belongs_to :user, optional: true
 
   validates :pikamon, :hp, :cp, :lonlat, presence: true
 

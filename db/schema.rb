@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2019_11_26_051731) do
 
   create_table "pikamon_wilds", force: :cascade do |t|
     t.bigint "pikamon_id", null: false
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.integer "hp"
     t.integer "cp"
     t.geography "lonlat", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
@@ -61,6 +61,5 @@ ActiveRecord::Schema.define(version: 2019_11_26_051731) do
   end
 
   add_foreign_key "pikamon_wilds", "pikamons"
-  add_foreign_key "pikamon_wilds", "users"
   add_foreign_key "pikamons", "pikamon_types"
 end
