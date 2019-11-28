@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2019_11_26_051731) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "postgis"
 
   create_table "pikamon_types", force: :cascade do |t|
     t.string "name"
@@ -25,15 +26,15 @@ ActiveRecord::Schema.define(version: 2019_11_26_051731) do
 
   create_table "pikamon_wilds", force: :cascade do |t|
     t.bigint "pikamon_id", null: false
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.integer "hp"
     t.integer "cp"
-    t.float "lat"
-    t.float "lng"
+    t.geography "lonlat", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
     t.datetime "deleted_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["deleted_at"], name: "index_pikamon_wilds_on_deleted_at"
+    t.index ["lonlat"], name: "index_pikamon_wilds_on_lonlat", using: :gist
     t.index ["pikamon_id"], name: "index_pikamon_wilds_on_pikamon_id"
     t.index ["user_id"], name: "index_pikamon_wilds_on_user_id"
   end
@@ -60,6 +61,5 @@ ActiveRecord::Schema.define(version: 2019_11_26_051731) do
   end
 
   add_foreign_key "pikamon_wilds", "pikamons"
-  add_foreign_key "pikamon_wilds", "users"
   add_foreign_key "pikamons", "pikamon_types"
 end

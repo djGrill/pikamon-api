@@ -26,8 +26,8 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
 
   config.before(:suite) do
-    DatabaseCleaner.strategy = :deletion
-    DatabaseCleaner.clean_with(:truncation)
+    DatabaseCleaner.strategy = :deletion, { except: %w[spatial_ref_sys] }
+    DatabaseCleaner.clean_with :truncation, except: %w[spatial_ref_sys]
   end
 
   config.around do |example|

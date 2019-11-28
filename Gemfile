@@ -5,6 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
+gem 'activerecord-postgis-adapter'
 gem 'paranoia', '~> 2.2'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'pry'
@@ -27,5 +28,5 @@ end
 group :test do
   gem 'database_cleaner'
   gem 'fuubar'
-  gem 'shoulda'
+  gem 'shoulda-matchers', '~> 4.1'
 end
